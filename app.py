@@ -90,8 +90,8 @@ def main():
                 
                 elif upload_file.name.endswith('.docx'):
                     doc = Document(io.BytesIO(upload_file.read()))
-                    paragraphs = [p.text for p in doc.paragraphs if p.text.strip()]
-                    original_text = '\n\n'.join(paragraphs)
+                    paragraphs = [p.text for p in doc.paragraphs]
+                    original_text = '\n'.join(paragraphs)
                 
                 if original_text.strip():
                     st.success(f"✅ 파일 업로드 완료: {upload_file.name}")
